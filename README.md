@@ -23,7 +23,7 @@ This is the code and input files (including data) for a paper that investigates 
 * output/: Contains all the output files from iqtree
 * final.min4.phy.varsite.phy: Input file, made with vcf2phylip (that can be found in the **Conversion_Scripts/** folder)
 * final_popmap.csv: Population map matching geographic region of sample collection in .csv format
-* tree.Rmd: Tree visualisation using ggtree R package
+* tree.Rmd: Tree visualisation using [ggtree package](https://github.com/YuLab-SMU/ggtree)
 
 ### pca/
 
