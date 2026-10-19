@@ -18,27 +18,29 @@ This is the code and input files (including data) for a paper that investigates 
 * NBNS-CBNL.sfs: Input sfs for dadi, made with easySFS.py (that can be found in the **Conversion_Scripts/** folder)
 * All the .py files: Scripts for dadi analysis and visualisation from [dadi_pipeline](https://github.com/dportik/dadi_pipeline)
 
-### iqtree
+### iqtree/
 
 * output/: Contains all the output files from iqtree
 * final.min4.phy.varsite.phy: Input file, made with vcf2phylip (that can be found in the **Conversion_Scripts/** folder)
 * final_popmap.csv: Population map matching geographic region of sample collection in .csv format
 * tree.Rmd: Tree visualisation using ggtree R package
 
-### pca
+### pca/
 
 * PCA.Rmd: Code for PCA using the [DartR package](https://green-striped-gecko.github.io/dartR/)
+* Note that the input files for this analysis can be found in the **Filtering/** folder
 
-### tess
+### tess/
 
 * tess.Rmd: Code for tess analysis using [tess3r package](https://github.com/bcm-uga/TESS3_encho_sen)
+* Note that the input files for this analysis can be found in the **Filtering/** folder
 
-## Conversion_Scripts
+## Conversion_Scripts/
 
 * [easysfs.py](https://github.com/isaacovercast/easySFS): Used for creating the input .sfs formatted file for dadi analysis
 * [vcf2phylip.py](https://github.com/edgardomortiz/vcf2phylip):  Used for creating the input file for iqtree analysis
 
-## Filtering
+## Filtering/
 * filter_ExON.html/ipnyb: Documentation of filtering steps
 * blacklist: List of Ontario samples that were excluded from further analysis
 * final.*: The resulting five vcf and converted files from filtering that were used in downstream analysis
