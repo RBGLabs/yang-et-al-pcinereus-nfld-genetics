@@ -9,7 +9,7 @@ This is the code and input files (including data) for a paper that investigates 
 ### admixture/
 
 * runs/: Contains the results of K = 1-9 replicate runs
-* EXON_final.bed/bim/fam : Input files for the admixture analysis
+* EXON_final.bed/bim/fam : Input files for the admixture analysis, made with [PLINK](https://www.cog-genomics.org/plink/2.0/)
 * run_admixture.sh: Shell script to run admixture analysis
 
 ### dadi/
