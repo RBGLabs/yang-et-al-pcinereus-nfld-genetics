@@ -1,0 +1,2 @@
+Model	Replicate	log-likelihood	theta	sfs_sum	chi-squared
+vic_sec_contact_asym_mig	1	-5819.66	1057.81	14841.88	4322.39

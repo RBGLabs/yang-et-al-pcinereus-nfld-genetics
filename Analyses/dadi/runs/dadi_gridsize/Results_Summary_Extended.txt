@@ -1,0 +1,8 @@
+Model	Replicate	log-likelihood	AIC	chi-squared	theta	optimized_params
+vic_no_mig	Round_4_Replicate_22	-9733.65	19471.3	11672.66	2841.83	0.01,0.0294	
+vic_no_mig	Round_4_Replicate_14	-9733.72	19471.44	11672.93	2841.75	0.01,0.0295	
+vic_no_mig	Round_4_Replicate_34	-9733.73	19471.46	11672.78	2841.93	0.01,0.0294	
+vic_no_mig	Round_4_Replicate_2	-9733.79	19471.58	11673.02	2841.75	0.01,0.0295	
+vic_no_mig	Round_4_Replicate_38	-9733.81	19471.62	11673.45	2841.62	0.01,0.0296	
+
+CY: looks like results are stable. I think I can stick with this grid size for full models

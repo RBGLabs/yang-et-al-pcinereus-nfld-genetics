@@ -1,0 +1,33 @@
+---
+title: "PCA"
+output: html_document
+date: "2025-11-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dartRverse)
+library(vcfR)
+```
+
+```{r}
+gl <- gl.read.vcf('final.recode.vcf', ind.metafile = 'final_popmap.csv')
+```
+```{r}
+pca <- gl.pcoa(gl)
+```
+```{r}
+p <- gl.pcoa.plot(pca, gl)
+p +
+  geom_hline(yintercept = 0, colour = "lightgrey", size = 0.5) +
+  geom_vline(xintercept = 0, colour = "lightgrey", size = 0.5) +
+  scale_colour_manual(values = c("#04A3BDFF", "#F0BE3DFF", "#931E18FF", "#DA7901FF", "#247D3FFF", "#20235BFF", "#C0392BFF"))+
+  theme_classic()+
+  theme(legend.position = "none")
+ggsave("pca_final_vcf.png", width = 6, height = 4)
+ggsave("pca_final_vcf.pdf", width = 6, height = 4)
+```
+

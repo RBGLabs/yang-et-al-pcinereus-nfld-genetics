@@ -1,0 +1,112 @@
+---
+title: "tess_exON"
+output: html_document
+date: "2025-08-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(LEA)
+library(tess3r)
+library(vcfR)
+library(maps)
+library(canadianmaps)
+```
+
+```{r}
+mylfmm <- vcf2lfmm('final.recode.vcf')
+mylfmm <- read.lfmm('final.recode.lfmm')
+mylfmm <- replace (mylfmm, mylfmm == 9, "NA")
+```
+
+```{r}
+coords <- read.csv('final_popmap.csv', header = T)
+coords1 <- coords[,2:3]
+coords1 <- as.matrix(coords1)
+```
+
+```{r}
+tess3.obj <- tess3(X = mylfmm, coord = coords1, K = 1:10, 
+                   method = "projected.ls", ploidy = 2, openMP.core.num = 4, rep = 10, keep = "Best") 
+```
+```{r}
+plot(tess3.obj, pch = 19, col = "blue",
+     xlab = "Number of ancestral populations",
+     ylab = "Cross-validation score")
+```
+
+
+
+```{r}
+q.matrix <- qmatrix(tess3.obj, K = 2)
+barplot(q.matrix, border = NA, space = 0, 
+        xlab = "Individuals", ylab = "Ancestry proportions", 
+        main = "Ancestry matrix") -> bp
+axis(1, at = 1:nrow(q.matrix), labels = bp$order, las = 3, cex.axis = .4) 
+plot(q.matrix, coords1, method = "map.max", interpol = FieldsKrigModel(10),  
+     main = "Ancestry coefficients",
+     xlab = "Longitude", ylab = "Latitude")
+```
+```{r}
+q.matrix2 <- qmatrix(tess3.obj, K = 3)
+barplot(q.matrix2, border = NA, space = 0, 
+        xlab = "Individuals", ylab = "Ancestry proportions", 
+        main = "Ancestry matrix") -> bp
+axis(1, at = 1:nrow(q.matrix), labels = bp$order, las = 3, cex.axis = .4) 
+plot(q.matrix2, coords1, method = "map.max", interpol = FieldsKrigModel(10),  
+     main = "Ancestry coefficients",
+     xlab = "Longitude", ylab = "Latitude")
+```
+
+```{r}
+q.matrix <- qmatrix(tess3.obj, K = 4)
+barplot(q.matrix, border = NA, space = 0, 
+        xlab = "Individuals", ylab = "Ancestry proportions", 
+        main = "Ancestry matrix") -> bp
+axis(1, at = 1:nrow(q.matrix), labels = bp$order, las = 3, cex.axis = .4) 
+plot(q.matrix, coords1, method = "map.max", interpol = FieldsKrigModel(10),  
+     main = "Ancestry coefficients",
+     xlab = "Longitude", ylab = "Latitude")
+```
+
+
+```{r}
+library(ggplot2)
+library(sf)
+```
+
+```{r}
+map.polygon <- canadianmaps::PROV[PROV$region %in% "Eastern",]
+
+palette1 <- c("#9F2519FF", "#351821FF")
+palette2 <- c("#9F2519FF","#F65620FF", "#351821FF")
+```
+
+
+```{r}
+mypalette <- CreatePalette(color.vector = palette2, palette.length = 15)
+```
+
+```{r}
+q.matrix2 <- qmatrix(tess3.obj, K=2)
+q.matrix3 <- qmatrix(tess3.obj, K=3)
+pl <- ggtess3Q(q.matrix3, coords1, map.polygon = map.polygon, col.palette = mypalette)
+pl
+```
+
+```{r}
+pl+ geom_sf(data = map.polygon, color = "black", fill = "transparent")+ylim(43, 48)+geom_point(data = coords1, aes (x = lon, y = lat), shape = 21, colour = "black", fill = "white", size = 2)+ theme_map()
+
+ggsave("tess.k3.pdf")
+```
+
+```{r}
+pl2 <- ggtess3Q(q.matrix2, coords1, map.polygon = map.polygon, col.palette = mypalette)
+pl2
+pl2+ geom_sf(data = map.polygon, color = "black", fill = "transparent")+ylim(43, 48)+geom_point(data = coords1,aes (x = lon, y = lat), shape = 21, colour = "black", fill = "white", size = 2)+ theme_map()
+ggsave("tess.k2.pdf")
+```
+
