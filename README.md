@@ -8,40 +8,40 @@ This is the code and input files (including data) for a paper that investigates 
 
 ### admixture/
 
-* runs/: Contains the results of K = 1-9 replicate runs
-* EXON_final.bed/bim/fam : Input files for the admixture analysis, made with [PLINK](https://www.cog-genomics.org/plink/2.0/)
-* run_admixture.sh: Shell script to run admixture analysis
+* *runs/*: Contains the results of K = 1-9 replicate runs
+* *EXON_final.bed/bim/fam*: Input files for the admixture analysis, made with [PLINK](https://www.cog-genomics.org/plink/2.0/)
+* *run_admixture.sh*: Shell script to run admixture analysis
 
 ### dadi/
 
-* runs/: Contains the results of 5 dadi runs
-* NBNS-CBNL.sfs: Input sfs for dadi, made with easySFS.py (that can be found in the **Conversion_Scripts/** folder)
-* All the .py files: Scripts for dadi analysis and visualisation from [dadi_pipeline](https://github.com/dportik/dadi_pipeline)
+* *runs/*: Contains the results of 5 dadi runs
+* *NBNS-CBNL.sfs*: Input sfs for dadi, made with easySFS.py (that can be found in the **Conversion_Scripts/** folder)
+* *All the .py files*: Scripts for dadi analysis and visualisation from [dadi_pipeline](https://github.com/dportik/dadi_pipeline)
 
 ### iqtree/
 
-* output/: Contains all the output files from iqtree
-* final.min4.phy.varsite.phy: Input file, made with vcf2phylip (that can be found in the **Conversion_Scripts/** folder)
-* final_popmap.csv: Population map matching geographic region of sample collection in .csv format
-* tree.Rmd: Tree visualisation using [ggtree package](https://github.com/YuLab-SMU/ggtree)
+* *output/*: Contains all the output files from iqtree
+* *final.min4.phy.varsite.phy*: Input file, made with vcf2phylip (that can be found in the **Conversion_Scripts/** folder)
+* *final_popmap.csv*: Population map matching geographic region of sample collection in .csv format
+* *tree.Rmd*: Tree visualisation using [ggtree package](https://github.com/YuLab-SMU/ggtree)
 
 ### pca/
 
-* PCA.Rmd: Code for PCA using the [DartR package](https://green-striped-gecko.github.io/dartR/)
+* *PCA.Rmd*: Code for PCA using the [DartR package](https://green-striped-gecko.github.io/dartR/)
 * Note that the input files for this analysis can be found in the **Filtering/** folder
 
 ### tess/
 
-* tess.Rmd: Code for tess analysis using [tess3r package](https://github.com/bcm-uga/TESS3_encho_sen)
+* *tess.Rmd*: Code for tess analysis using [tess3r package](https://github.com/bcm-uga/TESS3_encho_sen)
 * Note that the input files for this analysis can be found in the **Filtering/** folder
 
 ## Conversion_Scripts/
 
-* [easysfs.py](https://github.com/isaacovercast/easySFS): Used for creating the input .sfs formatted file for dadi analysis
-* [vcf2phylip.py](https://github.com/edgardomortiz/vcf2phylip):  Used for creating the input file for iqtree analysis
+* *[easysfs.py](https://github.com/isaacovercast/easySFS)*: Used for creating the input .sfs formatted file for dadi analysis
+* *[vcf2phylip.py](https://github.com/edgardomortiz/vcf2phylip)*:  Used for creating the input file for iqtree analysis
 
 ## Filtering/
-* filter_ExON.html/ipnyb: Documentation of filtering steps
-* blacklist: List of Ontario samples that were excluded from further analysis
+* *filter_ExON.html/ipnyb*: Documentation of filtering steps
+* *blacklist*: List of Ontario samples that were excluded from further analysis
 * final.*: The resulting five vcf and converted files from filtering that were used in downstream analysis
-* populations.snps.vcf: Starting vcf, provided by [IBIS](https://www.ibis.ulaval.ca/en/services-2/genomic-analysis-platform/) following their [STACKS workflow](https://github.com/enormandeau/stacks_workflow)
+* *populations.snps.vcf*: Starting vcf, provided by [IBIS](https://www.ibis.ulaval.ca/en/services-2/genomic-analysis-platform/) following their [STACKS workflow](https://github.com/enormandeau/stacks_workflow)
