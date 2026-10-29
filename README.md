@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23538846.svg)](https://doi.org/10.5281/zenodo.23538846)
 # Code and input files for "From One Island to Another: Identifying the Source Population of Eastern Red-backed Salamanders *(Plethodon cinereus)* in Newfoundland"
 
 This is the code and input files (including data) for a paper that investigates the genetic origin of Eastern Red-backed Salamanders that were introduced to Newfoundland. The manuscript is currently under review (DOI will be provided on acceptance). The raw sequence reads have also been uploaded to GenBank (and will be linked here upon release). The following explains the contents of each folder within this repository:
